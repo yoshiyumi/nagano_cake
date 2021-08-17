@@ -1,0 +1,59 @@
+<p id="notice"></p>
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-12 col-md-8 col-lg-5 px-5 px-sm-0 mx-auto">
+        <h1>注文情報入力</h1>
+        <%= form_with model: @order, url: confirm_orders_path, local:true do |f| %>
+        <table>
+          <div class="form-group">
+            <label for="status">支払方法</label>
+            <%= f.radio_button :payment_method, :credit_card, checked: "checked" %>
+            <%= f.label :クレジットカード, class: "payment_method_label" %>
+            <%= f.radio_button :payment_method, :bank_transfer %>
+            <%= f.label :銀行振込, class: "payment_method_label" %>
+            </div>
+
+          <div class="form-group">
+            <%= f.radio_button :my_address, 0, checked: true %>
+            <%= f.label :my_address, "ご自身の住所", value: 0 %>
+
+            <%= current_customer.full_address %><br>
+            <%= current_customer.full_name %>
+          </div>
+
+          <div class="form-group">
+            <%= f.radio_button :my_address, 1 %>
+            <%= f.label :my_address, "登録済住所から選択", value: 1 %>
+
+            <%= f.collection_select(:address_id, @addresses, :id, :full_address) %>
+          </div>
+
+
+          <div class="form-group">
+            <%= f.radio_button :my_address, 2 %>
+            <%= f.label :my_address, "新しいお届け先", value: 2 %><br>
+
+            <label for="postal_code">郵便番号(ハイフンなし)</label>
+            <%= f.text_field :postal_code, class:"form-control postal_code" %>
+          </div>
+
+          <div class="form-group">
+            <label for="address">住所</label>
+            <%= f.text_field :address, class:"form-control address" %>
+          </div>
+
+          <div class="form-group">
+            <label for="name">宛名</label>
+            <%= f.text_field :name, class:"form-control name" %>
+          </div>
+
+
+
+          <div class="form-group">
+            <%= f.submit "確認画面に進む", class:"btn btn-secondary" %>
+          </div>
+        </table>
+        <% end %>
+      </div>
+   </div>
+ </div>

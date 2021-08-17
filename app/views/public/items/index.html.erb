@@ -1,0 +1,39 @@
+
+  <div class="container px-5 px-sm-0">
+    <div class="row">
+      <div class="col-md-3">
+        <table class="table table-bordered">
+        <thead>
+          <tr>
+            <th>ジャンル</th>
+          </tr>
+         </thead>
+         <tbody>
+           <% @genres.each do |genre| %>
+          <tr class="genre-box">
+            <td><%= genre.name %></td>
+          </tr>
+          <% end %>
+        </tbody>
+        </table>
+     </div>
+     <div class="col-md-8 offset-md-1">
+        <h2>商品一覧</h2>
+           <div class = "row">
+            <% @items.each do |item| %>
+             <div class = "item col-md-3" >
+                <%= link_to item_path(item.id) do%>
+                <%= attachment_image_tag item, :image, :fill, 100, 100, format: 'jpeg', class:"attachment image fallback" %>
+                <% end %><br>
+                <%= link_to item.name, item_path(item.id)%><br>
+                <%= item.price %>
+             </div>
+           <% end %>
+           </div>
+
+           <%= paginate @items, theme: 'twitter-bootstrap-4' %>
+
+     </div>
+    </div>
+ </div>
+

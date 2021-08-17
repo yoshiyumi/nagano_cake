@@ -1,0 +1,54 @@
+<h2>Sign up</h2>
+
+<%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+  <%= render "publics/shared/error_messages", resource: resource %>
+
+  <div class="field">
+    <%= f.label :first_name %>
+    <%= f.text_field :first_name, autofocus: true, autocomplete: "名前" %>
+  </div>
+
+  <div class="field">
+    <%= f.label :first_name_kana %>
+    <%= f.text_field :first_name_kana, autofocus: true, autocomplete: "フリガナ" %>
+  </div>
+
+  <div class="field">
+    <%= f.label :email %>
+    <%= f.email_field :email, autofocus: true, autocomplete: "メールアドレス" %>
+  </div>
+
+  <div class="field">
+    <%= f.label :postal_code %>
+    <%= f.email_field :postal_code, autofocus: true, autocomplete: "郵便番号" %>
+  </div>
+
+  <div class="field">
+    <%= f.label :address %>
+    <%= f.email_field :address, autofocus: true, autocomplete: "住所" %>
+  </div>
+
+  <div class="field">
+    <%= f.label :telephone_number %>
+    <%= f.email_field :telephone_number, autofocus: true, autocomplete: "電話番号" %>
+  </div>
+
+  <div class="field">
+    <%= f.label :password %>
+    <% if @minimum_password_length %>
+    <em>(<%= @minimum_password_length %> characters minimum)</em>
+    <% end %>
+    <%= f.password_field :password, autocomplete: "new-password" %>
+  </div>
+
+  <div class="field">
+    <%= f.label :password_confirmation %>
+    <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit "新規登録" %>
+  </div>
+<% end %>
+
+<%= render "publics/shared/links" %>

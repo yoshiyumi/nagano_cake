@@ -1,0 +1,35 @@
+<p id="notice"></p>
+  <div class="container">
+      <div class="row">
+          <div class="col-sm-12 col-md-8 col-lg-5 px-5 px-sm-0 mx-auto">
+              <h1>会員一覧</h1>
+
+              <table class = "table">
+                   <thead>
+                       <tr>
+                           <th>会員ID</th>
+                           <th>氏名</th>
+
+                           <th>メールアドレス</th>
+                           <th>ステータス</th>
+                       </tr>
+                 </thead>
+                 <tbody>
+                     <% @customers.each do |customer| %>
+                     <tr class="customer-box">
+                         <td><%= customer.id %></td>
+                         <td><%= link_to customer.full_name, admin_customer_path(customer.id)%></td>
+                         <td><%= customer.email %></td>
+                         <% if customer.is_active == true %>
+                         <td><%= "有効" %></td>
+                         <% else %>
+                         <td><%= "退会" %></td>
+                         <% end %>
+                     </tr>
+                     <% end %>
+                  </tbody>
+              </table>
+            <%= paginate @customers, theme: 'twitter-bootstrap-4' %>
+          </div>
+      </div>
+ </div>

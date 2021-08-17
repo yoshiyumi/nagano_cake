@@ -1,0 +1,19 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  order_id: 1
+  item_id: 1
+  price: 1
+  amount: 1
+  making_status: 1
+  created_at: 2021-07-23 08:34:39
+  update_at: 2021-07-23 08:34:39
+
+two:
+  order_id: 1
+  item_id: 1
+  price: 1
+  amount: 1
+  making_status: 1
+  created_at: 2021-07-23 08:34:39
+  update_at: 2021-07-23 08:34:39

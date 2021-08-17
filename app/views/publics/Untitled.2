@@ -1,0 +1,30 @@
+<p id="notice"></p>
+  <div class="container">
+      <div class="row">
+          <div class="col-sm-12 col-md-8 col-lg-5 px-5 px-sm-0 mx-auto">
+              <h1>会員一覧</h1>
+
+              <table>
+                   <thead>
+                       <tr>
+                           <th>会員ID</th>
+                           <th>氏名</th>
+                           <th colspan="1"></th>
+                           <th>メールアドレス</th>
+                           <th>ステータス</th>
+                       </tr>
+                 </thead>
+                 <tbody>
+                     <% @customers.each do |customer| %>
+                     <tr class="customer-box">
+                         <td><%= customer.id %></td>
+                         <td><%= customer.first_name %></td><td><%= customer.last_name %></td>
+                         <td><%= customer.email %></td>
+                         <td><%= customer.is_active %></td>
+                     </tr>
+                     <% end %>
+                  </tbody>
+              </table>
+          </div>
+      </div>
+ </div>

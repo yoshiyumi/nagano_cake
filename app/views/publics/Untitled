@@ -1,0 +1,8 @@
+def confirm
+     @cart_items = CartItem.all
+     @order = Order.new(order_params)
+     @order.postage = 800
+     if params[:order][:my_address]  == "1"
+     @address = Address.find(params[:order][:address_id])
+     end
+  end

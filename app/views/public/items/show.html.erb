@@ -1,0 +1,48 @@
+<div class="container px-5 px-sm-0">
+    <div class="row">
+      <div class="col-md-3">
+        <table class="table table-bordered">
+        <thead>
+          <tr>
+            <th>ジャンル</th>
+          </tr>
+         </thead>
+         <tbody>
+           <% @genres.each do |genre| %>
+    　      <tr class="genre-box">
+            <td><%= genre.name %></td>
+          </tr>
+          <% end %>
+        </tbody>
+        </table>
+     </div>
+
+     <div class="col-md-9">
+       <div style = "display:flex;">
+       <div>
+       <%= attachment_image_tag @item, :image, :fill, 300, 270, format: 'jpeg', class:"attachment image fallback" %>
+       </div>
+
+       <div>
+         <h2>商品一覧</h2>
+           <table class="table table-hover table-inverse">
+              <tbody>
+                <tr class="item-box">
+                  <td><%=  @item.name %></td>
+                  <td><%=  @item.introduction %></td>
+                  <td><%= @item.price %></td>
+               </tr>
+             </tbody>
+            </table>
+           <%= form_with model:@cart_item, url: cart_items_path, method: :post, local: true do |f|  %>
+           <%= f.number_field :amount, min: 1 %>
+           <%= f.hidden_field	:item_id, :value => @item.id %>
+           <%= f.submit "カートに入れる", class:"btn btn-sm btn-success" %>
+           <% end %>
+       </div>
+       </div>
+
+     </div>
+    </div>
+ </div>
+

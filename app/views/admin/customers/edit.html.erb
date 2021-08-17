@@ -1,0 +1,57 @@
+<p id="notice"></p>
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-12 col-md-8 col-lg-5 px-5 px-sm-0 mx-auto">
+        <h1>の会員情報編集</h1>
+        
+          <%= form_with model: @customer,url: admin_customer_path, local:true do |f| %>
+
+          <div class="form-group">
+            <label for="id">会員ID</label>
+            <%= f.text_field :id, class:"form-control id" %>
+          </div>
+
+          <div class="form-group">
+            <label for="name">氏名</label>
+            <%= f.text_field :last_name, class:"form-control name" %>
+            <%= f.text_field :first_name, class:"form-control name" %>
+          </div>
+          <div class="form-group">
+            <label for="name">フリガナ</label>
+            <%= f.text_field :last_name_kana,  class:"form-control name" %>
+            <%= f.text_field :first_name_kana,  class:"form-control name" %>
+          </div>
+
+          <div class="form-group">
+            <label for="postal_code">郵便番号</label>
+            <%= f.text_field :postal_code, class:"form-control postal_code" %>
+          </div>
+          <div class="form-group">
+            <label for="address">住所</label>
+            <%= f.text_field :address, class:"form-control address" %>
+          </div>
+          <div class="form-group">
+            <label for="telephone_number">電話番号</label>
+            <%= f.text_field :telephone_number, class:"form-control telephone_number" %>
+          </div>
+          <div class="form-group">
+            <label for="email">メールアドレス</label>
+            <%= f.text_field :email, class:"form-control email" %>
+          </div>
+
+
+          <div class="form-group">
+            <label for="status">会員ステータス</label>
+            <%= f.radio_button :is_active, :true %>
+            <%= f.label :is_active, "有効", {value: :true, style: "display: inline-block;"} %>
+            <%= f.radio_button :is_active, :false %>
+            <%= f.label :is_active, "退会", {value: :false, style: "display: inline-block;"} %>
+          </div>
+          <div class="form-group">
+            <%= f.submit "変更を保存", class:"btn btn-success" %>
+          </div>
+          <% end %>
+       
+      </div>
+   </div>
+ </div>
